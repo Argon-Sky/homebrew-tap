@@ -4,6 +4,7 @@ class HerdrCodexbar < Formula
   url "https://github.com/Argon-Sky/herdr-codexbar/archive/refs/tags/v0.2.0.tar.gz"
   sha256 "f264a1039bfd5e5f3e9cd2f7f37eb18dc52d7b233427fa7f338eccc33a3c3291"
   license "MIT"
+  revision 1
 
   depends_on :macos
   depends_on "python@3.13"
@@ -11,12 +12,13 @@ class HerdrCodexbar < Formula
   def install
     libexec.install "herdr_codexbar"
     # Agents and Herdr call the stable opt path, so upgrades need no new setup.
+    # -P keeps a herdr_codexbar folder in the current directory, such as a checkout, from shadowing this install.
     (bin/"herdr-codexbar").write <<~SH
       #!/bin/sh
       export HERDR_CODEXBAR_BIN="#{opt_bin}/herdr-codexbar"
       export HERDR_CODEXBAR_BREW=1
       export PYTHONPATH="#{opt_libexec}"
-      exec "#{Formula["python@3.13"].opt_bin}/python3.13" -m herdr_codexbar "$@"
+      exec "#{Formula["python@3.13"].opt_bin}/python3.13" -P -m herdr_codexbar "$@"
     SH
     chmod 0755, bin/"herdr-codexbar"
   end
