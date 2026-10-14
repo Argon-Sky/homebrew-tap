@@ -1,10 +1,9 @@
 class HerdrCodexbar < Formula
   desc "Subscription quota from CodexBar in Herdr's agent sidebar"
   homepage "https://github.com/Argon-Sky/herdr-codexbar"
-  url "https://github.com/Argon-Sky/herdr-codexbar/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "f264a1039bfd5e5f3e9cd2f7f37eb18dc52d7b233427fa7f338eccc33a3c3291"
+  url "https://github.com/Argon-Sky/herdr-codexbar/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "c97aba173a9612876692db70885434b16c2a037b4d7a8fab9756a7f14c3548c1"
   license "MIT"
-  revision 1
 
   depends_on :macos
   depends_on "python@3.13"
